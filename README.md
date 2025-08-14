@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="media/armzilla_claw.png" alt="ArmZilla Claw" width="300">
+</p>
+
 # ArmZilla
 
 **ArmZilla** is a modular robotic arm project designed for The Lab — capable of:
