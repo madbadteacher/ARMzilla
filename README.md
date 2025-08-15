@@ -38,7 +38,7 @@ flowchart TD
     V1[Detect all items in ROI<br/>(contours or tiny YOLO)]
     V2[Measure from grid (mm):<br/>L, D_shank, D_head, head crop]
     V3[Optional side cue (mirror/turntable)]
-    V4[Classify per item:<br/>{screw, bolt, nut, washer, unknown}<br/>+ subtype (e.g., M3x10 CSK, M4 nut)]
+    V4[Classify per item:<br/>{screw, bolt, nut, washer, unknown}<br/>+ subtype]
     V5{Confidence ≥ τ ?}
     V6[Add (pick_point, class) to QUEUE]
     V7[Route to UNKNOWN queue]
@@ -79,12 +79,5 @@ flowchart TD
   E1 -- yes --> M5
   E1 -- no --> E2 -->|failed| E3 --> M0
   E2 -->|recovered| M5
-
-  %% THROUGHPUT NOTES
-  classDef note fill:#f7f7f7,stroke:#bbb,color:#333,font-size:11px;
-  N1([Timing targets per item:<br/>Vision 0.2–0.6s • Plan 0.05s<br/>Move→Pick 1.2–2.0s • Place 1.2–2.0s<br/><b>Total 3–8s typical</b>]):::note
-  N2([Batch capture once per 3–6 picks;<br/>refresh frame if queue < 2]):::note
-  VISION --> N2
-  MOTION --> N1
 ## License
 TBD
